@@ -7,7 +7,7 @@
     "dist/"
   ],
   "scripts": {
-    "build": "stencil build --prerender",
+    "build": "stencil build --prerender && npm run host-to-firebase",
     "cz": "git-cz",
     "dev": "sd concurrent \"stencil build --dev --watch --no-cache\" \"stencil-dev-server\" ",
     "lint": "tslint -p ./tsconfig.json --exclude '**/*.d.ts'",
@@ -19,6 +19,7 @@
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "st:generate": "node scripts/st-generate.js",
     "prepublish": "stencil build --prod",
+    "host-to-firebase": "node scripts/host-to-firebase.js",
     "firebase:deploy": "node scripts/deploy.js",
     "firebase:deploy:dev": "firebase use default && firebase deploy --token \"$FIREBASE_TOKEN\"",
     "firebase:deploy:prod": "firebase use production && firebase deploy --token \"$FIREBASE_TOKEN\""
